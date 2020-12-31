@@ -56,6 +56,14 @@ print(results)
 results2 = face_recognition.compare_faces([encodeElonFace],encodeBillTestFace)
 print(results2)
 
+# Similarity between faces "Best Match"
+faceDistance = face_recognition.face_distance([encodeElonFace], encodeElonTestFace)
+BillFaceDistance = face_recognition.face_distance([encodeElonFace], encodeBillTestFace)
+
+cv2.putText(ElonTestImg, f'{results} {round(faceDistance[0], 2)}', (50, 50), cv2.FONT_HERSHEY_SCRIPT_COMPLEX, 1, (250, 200, 100), 2, cv2.LINE_8)
+
+
+
 # Show Images
 cv2.imshow('Elon Musk', ElonImg)
 cv2.imshow('Elon Musk Test', ElonTestImg)
